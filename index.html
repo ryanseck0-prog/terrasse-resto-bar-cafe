@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terrasse Resto Bar Café — Oasis méditerranéenne au cœur de Dakar</title>
+<meta name="description" content="Terrasse Resto Bar Café, Plateau Dakar. Cuisine libanaise et méditerranéenne, petit-déjeuner, mezzés, grillades, cocktails. Ouvert 7j/7 de 8h à minuit. Commandez sur WhatsApp.">
+<meta property="og:title" content="Terrasse Resto Bar Café — Dakar">
+<meta property="og:description" content="Une oasis méditerranéenne au cœur de Dakar. Cuisine libanaise, terrasse, bar. Commandez sur WhatsApp.">
+<meta property="og:image" content="images/brunch.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#f6efe4;
+  --sand-2:#efe4d3;
+  --cream:#fbf7f0;
+  --ink:#1d211c;
+  --ink-soft:#4a4f45;
+  --olive:#3f4a34;
+  --olive-deep:#2a3223;
+  --terra:#b4552d;
+  --terra-soft:#c96f45;
+  --gold:#c9a227;
+  --line:rgba(29,33,28,.14);
+  --shadow:0 24px 60px -30px rgba(29,33,28,.45);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',system-ui,-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);background:var(--cream);color:var(--ink);
+  line-height:1.65;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--terra);color:#fff}
+
+/* ---------- PRELOADER ---------- */
+#loader{
+  position:fixed;inset:0;z-index:9999;background:var(--olive-deep);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+  transition:opacity .7s ease,visibility .7s ease;
+}
+#loader.done{opacity:0;visibility:hidden}
+#loader img{width:190px;filter:brightness(0) invert(1);opacity:.92;animation:lp 2.4s ease-in-out infinite}
+@keyframes lp{0%,100%{opacity:.55;transform:scale(.98)}50%{opacity:1;transform:scale(1)}}
+.loader-bar{width:150px;height:2px;background:rgba(255,255,255,.18);overflow:hidden}
+.loader-bar i{display:block;height:100%;width:0;background:var(--gold);animation:lb 1.5s ease forwards}
+@keyframes lb{to{width:100%}}
+.loader-txt{font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+
+/* ---------- PROGRESS ---------- */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--terra);z-index:1000;transition:width .1s linear}
+
+/* ---------- HEADER ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:22px 0;transition:padding .45s ease,background .45s ease,box-shadow .45s ease;
+}
+header.scrolled{
+  padding:10px 0;background:rgba(251,247,240,.94);
+  backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);
+}
+.nav{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:132px;transition:width .45s ease,filter .45s ease;filter:brightness(0) invert(1)}
+header.scrolled .brand img{width:112px;filter:none}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:400;
+  color:rgba(255,255,255,.9);position:relative;padding:4px 0;transition:color .3s;
+}
+header.scrolled .nav-links a{color:var(--ink-soft)}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--terra);transition:width .35s ease;
+}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--terra)}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:9px;padding:11px 22px;border-radius:100px;
+  background:var(--terra);color:#fff!important;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  transition:transform .3s ease,background .3s ease,box-shadow .3s ease;
+}
+.nav-cta:hover{background:var(--olive);transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(63,74,52,.7)}
+.nav-cta::after{display:none}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px}
+.burger span{width:24px;height:1.5px;background:#fff;transition:.35s}
+header.scrolled .burger span{background:var(--ink)}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ---------- MOBILE MENU ---------- */
+#mobileMenu{
+  position:fixed;inset:0;z-index:890;background:var(--olive-deep);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s ease;
+}
+#mobileMenu.open{opacity:1;visibility:visible}
+#mobileMenu a{
+  font-family:var(--serif);font-size:2rem;color:var(--sand);padding:8px 0;
+  opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease,color .3s;
+}
+#mobileMenu.open a{opacity:1;transform:none}
+#mobileMenu a:hover{color:var(--gold)}
+#mobileMenu .m-phone{margin-top:26px;font-family:var(--sans);font-size:.8rem;letter-spacing:.2em;color:var(--gold)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;transform:scale(1.08);transition:opacity 1.6s ease;
+}
+.hero-slide.active{opacity:1;animation:kenburns 9s ease-out forwards}
+@keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.14)}}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,24,18,.62) 0%,rgba(20,24,18,.34) 42%,rgba(20,24,18,.78) 100%);
+}
+.hero-inner{position:relative;z-index:3;text-align:center;padding:0 24px;max-width:960px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:14px;color:var(--gold);
+  font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;margin-bottom:26px;
+  opacity:0;animation:fadeUp 1s .3s ease forwards;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:34px;height:1px;background:rgba(201,162,39,.6)}
+.hero h1{
+  font-family:var(--serif);font-weight:300;color:#fff;line-height:.98;
+  font-size:clamp(3rem,8.4vw,7rem);letter-spacing:-.02em;
+}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l span{display:block;transform:translateY(110%);animation:lineUp 1.1s cubic-bezier(.19,1,.22,1) forwards}
+.hero h1 .l:nth-child(1) span{animation-delay:.45s}
+.hero h1 .l:nth-child(2) span{animation-delay:.6s;font-style:italic;color:var(--gold)}
+@keyframes lineUp{to{transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero p{
+  color:rgba(255,255,255,.86);font-size:clamp(.95rem,1.5vw,1.12rem);font-weight:300;
+  max-width:560px;margin:26px auto 0;opacity:0;animation:fadeUp 1s .95s ease forwards;
+}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px;opacity:0;animation:fadeUp 1s 1.15s ease forwards}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:100px;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  transition:transform .35s cubic-bezier(.19,1,.22,1),background .35s,color .35s,box-shadow .35s;
+}
+.btn-primary{background:var(--terra);color:#fff}
+.btn-primary:hover{background:#9c4523;transform:translateY(-3px);box-shadow:0 18px 34px -16px rgba(180,85,45,.9)}
+.btn-ghost{border:1px solid rgba(255,255,255,.5);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--ink);transform:translateY(-3px)}
+.hero-meta{
+  position:absolute;bottom:34px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:34px;
+  flex-wrap:wrap;color:rgba(255,255,255,.78);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  opacity:0;animation:fadeUp 1s 1.4s ease forwards;
+}
+.hero-meta span{display:flex;align-items:center;gap:8px}
+.hero-meta i{width:5px;height:5px;border-radius:50%;background:var(--gold);display:block}
+.hero-dots{position:absolute;right:34px;top:50%;transform:translateY(-50%);z-index:4;display:flex;flex-direction:column;gap:12px}
+.hero-dots button{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);transition:.35s}
+.hero-dots button.on{background:var(--gold);transform:scale(1.5)}
+.scroll-hint{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:4;
+  width:1px;height:64px;background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent);
+}
+.scroll-hint::after{content:'';position:absolute;top:0;left:-2px;width:5px;height:5px;border-radius:50%;background:var(--gold);animation:drop 2s infinite}
+@keyframes drop{0%{top:0;opacity:1}80%{top:58px;opacity:0}100%{opacity:0}}
+
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--olive-deep);color:var(--sand);padding:16px 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:0;animation:scrollX 34s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{
+  font-family:var(--serif);font-size:1.05rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:0 26px;display:inline-flex;align-items:center;gap:26px;
+}
+.marquee span::after{content:'✦';color:var(--gold);font-size:.7rem}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+
+/* ---------- SECTIONS ---------- */
+section{position:relative}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.sec{padding:110px 0}
+.sec-head{max-width:660px;margin-bottom:56px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.kicker{
+  display:inline-flex;align-items:center;gap:12px;font-size:.64rem;letter-spacing:.36em;
+  text-transform:uppercase;color:var(--terra);margin-bottom:18px;font-weight:500;
+}
+.kicker::before{content:'';width:26px;height:1px;background:var(--terra)}
+.sec-head.center .kicker::after{content:'';width:26px;height:1px;background:var(--terra)}
+h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.1rem,4.4vw,3.5rem);line-height:1.08;letter-spacing:-.015em}
+h2 em{font-style:italic;color:var(--terra)}
+.lead{color:var(--ink-soft);font-size:1.02rem;margin-top:20px;max-width:600px}
+.sec-head.center .lead{margin-left:auto;margin-right:auto}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.19,1,.22,1),transform .9s cubic-bezier(.19,1,.22,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+
+/* ---------- HISTOIRE ---------- */
+.histoire{background:var(--cream)}
+.hist-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.hist-media{position:relative}
+.hist-media .m1{border-radius:2px;overflow:hidden;box-shadow:var(--shadow)}
+.hist-media .m1 img{width:100%;height:520px;object-fit:cover;transition:transform 1.2s cubic-bezier(.19,1,.22,1)}
+.hist-media:hover .m1 img{transform:scale(1.05)}
+.hist-media .m2{
+  position:absolute;right:-34px;bottom:-46px;width:210px;height:250px;overflow:hidden;
+  border:8px solid var(--cream);box-shadow:var(--shadow);
+}
+.hist-media .m2 img{width:100%;height:100%;object-fit:cover}
+.hist-badge{
+  position:absolute;left:-26px;top:34px;background:var(--olive-deep);color:var(--sand);
+  padding:18px 22px;text-align:center;box-shadow:var(--shadow);
+}
+.hist-badge b{display:block;font-family:var(--serif);font-size:2rem;line-height:1;color:var(--gold)}
+.hist-badge small{font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;opacity:.8}
+.hist-txt p{color:var(--ink-soft);margin-bottom:18px}
+.hist-txt p:first-of-type::first-letter{
+  font-family:var(--serif);font-size:3.4rem;float:left;line-height:.82;padding:6px 12px 0 0;color:var(--terra);
+}
+.sign{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--olive);margin-top:26px}
+.hist-stats{display:flex;gap:38px;margin-top:38px;padding-top:30px;border-top:1px solid var(--line);flex-wrap:wrap}
+.hist-stats div b{display:block;font-family:var(--serif);font-size:2.1rem;line-height:1;color:var(--olive)}
+.hist-stats div small{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- SPECIALITES ---------- */
+.spec{background:var(--sand)}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.spec-card{
+  position:relative;overflow:hidden;background:var(--cream);box-shadow:0 18px 40px -30px rgba(29,33,28,.5);
+  transition:transform .5s cubic-bezier(.19,1,.22,1),box-shadow .5s;
+}
+.spec-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -34px rgba(29,33,28,.6)}
+.spec-card .ph{height:300px;overflow:hidden}
+.spec-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.19,1,.22,1)}
+.spec-card:hover .ph img{transform:scale(1.08)}
+.spec-body{padding:26px 26px 30px}
+.spec-body h3{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:8px}
+.spec-body p{font-size:.9rem;color:var(--ink-soft)}
+.spec-num{
+  position:absolute;top:16px;left:16px;background:rgba(251,247,240,.94);color:var(--olive);
+  font-family:var(--serif);font-size:.9rem;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;
+}
+
+/* ---------- CARTE ---------- */
+.carte{background:var(--olive-deep);color:var(--sand);overflow:hidden}
+.carte .kicker{color:var(--gold)}
+.carte .kicker::before,.carte .kicker::after{background:var(--gold)}
+.carte h2{color:var(--sand)}
+.carte h2 em{color:var(--gold)}
+.carte .lead{color:rgba(246,239,228,.7)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:46px}
+.tab{
+  padding:11px 20px;border:1px solid rgba(246,239,228,.22);border-radius:100px;
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,239,228,.72);
+  transition:.35s;
+}
+.tab:hover{border-color:rgba(201,162,39,.6);color:var(--sand)}
+.tab.on{background:var(--gold);border-color:var(--gold);color:var(--olive-deep);font-weight:500}
+.panel{display:none;animation:panelIn .55s ease}
+.panel.on{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+.dish{
+  display:flex;align-items:flex-start;gap:12px;padding:15px 0;border-bottom:1px solid rgba(246,239,228,.1);
+  transition:padding-left .35s ease,background .35s;
+}
+.dish:hover{padding-left:8px}
+.dish-main{flex:1;min-width:0}
+.dish-name{font-family:var(--serif);font-size:1.16rem;color:var(--sand);line-height:1.3}
+.dish-desc{font-size:.76rem;color:rgba(246,239,228,.66);margin-top:3px;line-height:1.5}
+.dish-dots{flex:1;border-bottom:1px dotted rgba(246,239,228,.22);min-width:14px;align-self:center;margin-top:6px}
+.dish-price{font-size:.86rem;color:var(--gold);white-space:nowrap;font-weight:400;letter-spacing:.02em;padding-top:2px}
+.dish-order{
+  width:26px;height:26px;border-radius:50%;border:1px solid rgba(201,162,39,.4);color:var(--gold);
+  display:grid;place-items:center;font-size:.7rem;flex-shrink:0;opacity:0;transform:scale(.8);
+  transition:.3s;align-self:center;
+}
+.dish:hover .dish-order{opacity:1;transform:none}
+.dish-order:hover{background:var(--gold);color:var(--olive-deep)}
+.menu-note{
+  margin-top:44px;text-align:center;font-size:.78rem;color:rgba(246,239,228,.72);
+  display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;
+}
+.menu-note a{color:var(--gold);border-bottom:1px solid rgba(201,162,39,.4);padding-bottom:1px}
+.carte-cta{display:flex;gap:14px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--olive-deep)}
+.btn-gold:hover{background:#d8b23a;transform:translateY(-3px)}
+.btn-outline{border:1px solid rgba(246,239,228,.35);color:var(--sand)}
+.btn-outline:hover{background:var(--sand);color:var(--olive-deep);transform:translateY(-3px)}
+
+/* ---------- GALERIE ---------- */
+.gal{background:var(--cream)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+.gal-item{position:relative;overflow:hidden;cursor:pointer;background:var(--sand-2)}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.19,1,.22,1),filter .5s}
+.gal-item:hover img{transform:scale(1.09)}
+.gal-item::after{
+  content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(20,24,18,.55),transparent 55%);
+  opacity:0;transition:opacity .45s;
+}
+.gal-item:hover::after{opacity:1}
+.gal-item .cap{
+  position:absolute;left:16px;bottom:14px;z-index:2;color:#fff;font-size:.66rem;
+  letter-spacing:.2em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:.45s;
+}
+.gal-item:hover .cap{opacity:1;transform:none}
+.gal-item.tall{grid-row:span 2}
+.gal-item.wide{grid-column:span 2}
+
+/* ---------- AVIS ---------- */
+.avis{background:var(--sand);overflow:hidden}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.avis-card{background:var(--cream);padding:34px 30px;position:relative;box-shadow:0 18px 40px -34px rgba(29,33,28,.5)}
+.avis-card .q{font-family:var(--serif);font-size:3.4rem;line-height:.6;color:var(--terra);opacity:.28}
+.avis-card p{font-family:var(--serif);font-size:1.16rem;font-style:italic;color:var(--ink);margin:14px 0 20px;line-height:1.5}
+.avis-who{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px}
+.avis-av{width:38px;height:38px;border-radius:50%;background:var(--olive);color:var(--sand);display:grid;place-items:center;font-size:.8rem;font-family:var(--serif)}
+.avis-who b{display:block;font-size:.82rem;font-weight:500}
+.avis-who small{font-size:.66rem;color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.8rem;margin-bottom:6px}
+.rating-band{
+  display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap;
+  margin-bottom:52px;padding:26px 34px;background:var(--cream);border:1px solid var(--line);
+}
+.rating-band .big{font-family:var(--serif);font-size:3.2rem;line-height:1;color:var(--olive)}
+.rating-band .rt small{display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.rating-band .sep{width:1px;height:44px;background:var(--line)}
+.rating-band .txt{font-size:.86rem;color:var(--ink-soft);max-width:340px}
+
+/* ---------- INFOS ---------- */
+.infos{background:var(--cream)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start}
+.info-list{display:flex;flex-direction:column;gap:0}
+.info-row{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
+.info-row:first-child{padding-top:0}
+.info-ico{
+  width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--sand);
+  display:grid;place-items:center;color:var(--terra);
+}
+.info-ico svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.5}
+.info-row h4{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px;font-weight:500}
+.info-row p,.info-row a{font-size:1rem;color:var(--ink);line-height:1.55}
+.info-row a:hover{color:var(--terra)}
+.info-row .sub{font-size:.8rem;color:var(--ink-soft);margin-top:3px}
+.hours{display:grid;grid-template-columns:1fr auto;gap:4px 18px;font-size:.9rem;max-width:280px}
+.hours span:nth-child(even){color:var(--terra);text-align:right}
+.open-pill{
+  display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:5px 12px;border-radius:100px;
+  background:rgba(63,74,52,.1);color:var(--olive);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+}
+.open-pill i{width:6px;height:6px;border-radius:50%;background:#4a8a3f;display:block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.map-box{position:relative;height:100%;min-height:460px;overflow:hidden;box-shadow:var(--shadow);background:var(--sand-2)}
+.map-box iframe{width:100%;height:100%;min-height:460px;border:0;filter:grayscale(.25) contrast(1.02)}
+.map-card{
+  position:absolute;left:20px;bottom:20px;background:var(--cream);padding:18px 22px;max-width:270px;
+  box-shadow:0 18px 40px -22px rgba(29,33,28,.6);
+}
+.map-card b{font-family:var(--serif);font-size:1.1rem;display:block;margin-bottom:4px}
+.map-card p{font-size:.78rem;color:var(--ink-soft);line-height:1.5}
+.map-card a{display:inline-block;margin-top:10px;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);border-bottom:1px solid var(--terra);padding-bottom:2px}
+
+/* ---------- CTA BAND ---------- */
+.cta-band{position:relative;padding:120px 0;text-align:center;overflow:hidden;color:#fff}
+.cta-band .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05)}
+.cta-band::after{content:'';position:absolute;inset:0;background:rgba(20,24,18,.72)}
+.cta-band .wrap{position:relative;z-index:2}
+.cta-band h2{color:#fff;margin-bottom:18px}
+.cta-band h2 em{color:var(--gold)}
+.cta-band p{color:rgba(255,255,255,.8);max-width:520px;margin:0 auto 34px}
+.cta-band .btn-primary{background:var(--gold);color:var(--olive-deep)}
+.cta-band .btn-primary:hover{background:#d8b23a}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--olive-deep);color:rgba(246,239,228,.72);padding:70px 0 0}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:44px;padding-bottom:52px}
+.foot-brand img{width:150px;filter:brightness(0) invert(1);opacity:.9;margin-bottom:18px}
+.foot-brand p{font-size:.86rem;line-height:1.7;max-width:280px}
+.foot-col h5{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:500}
+.foot-col a,.foot-col p{display:block;font-size:.86rem;margin-bottom:10px;transition:color .3s}
+.foot-col a:hover{color:var(--gold)}
+.socials{display:flex;gap:10px;margin-top:18px}
+.socials a{
+  width:38px;height:38px;border-radius:50%;border:1px solid rgba(246,239,228,.22);
+  display:grid;place-items:center;transition:.35s;margin:0;
+}
+.socials a:hover{background:var(--gold);border-color:var(--gold);color:var(--olive-deep);transform:translateY(-3px)}
+.socials svg{width:16px;height:16px;fill:currentColor}
+.foot-bottom{
+  border-top:1px solid rgba(246,239,228,.12);padding:22px 0;display:flex;
+  justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.72rem;color:rgba(246,239,228,.45);
+}
+
+/* ---------- WHATSAPP FLOAT ---------- */
+.wa-float{
+  position:fixed;right:22px;bottom:22px;z-index:800;display:flex;align-items:center;gap:0;
+  background:#25d366;color:#fff;border-radius:100px;padding:14px;box-shadow:0 14px 34px -10px rgba(37,211,102,.7);
+  transition:padding .4s cubic-bezier(.19,1,.22,1),transform .3s,box-shadow .3s;
+}
+.wa-float:hover{padding:14px 22px 14px 16px;transform:translateY(-3px);box-shadow:0 20px 40px -12px rgba(37,211,102,.85)}
+.wa-float svg{width:26px;height:26px;fill:#fff;flex-shrink:0}
+.wa-float span{
+  max-width:0;overflow:hidden;white-space:nowrap;font-size:.76rem;letter-spacing:.1em;
+  text-transform:uppercase;transition:max-width .4s ease,margin .4s ease;
+}
+.wa-float:hover span{max-width:180px;margin-left:10px}
+.wa-float::before{
+  content:'';position:absolute;inset:0;border-radius:100px;border:2px solid #25d366;
+  animation:ring 2.6s infinite;
+}
+@keyframes ring{0%{transform:scale(1);opacity:.7}70%{transform:scale(1.35);opacity:0}100%{opacity:0}}
+
+/* ---------- LIGHTBOX ---------- */
+#lb{
+  position:fixed;inset:0;z-index:950;background:rgba(15,18,14,.95);
+  display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.4s;
+}
+#lb.open{opacity:1;visibility:visible}
+#lb img{max-width:88vw;max-height:84vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#lb .x{position:absolute;top:24px;right:28px;color:#fff;font-size:2rem;line-height:1;opacity:.7;transition:.3s}
+#lb .x:hover{opacity:1;transform:rotate(90deg)}
+#lb .nav-btn{
+  position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:2.4rem;
+  width:56px;height:56px;display:grid;place-items:center;opacity:.55;transition:.3s;
+}
+#lb .nav-btn:hover{opacity:1}
+#lb .prev{left:18px}#lb .next{right:18px}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1024px){
+  .hist-grid,.info-grid{grid-template-columns:1fr;gap:56px}
+  .hist-media .m2{right:0;bottom:-30px;width:160px;height:190px}
+  .spec-grid{grid-template-columns:1fr 1fr}
+  .avis-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(3,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .menu-cols{grid-template-columns:1fr;gap:0}
+}
+@media(max-width:860px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .sec{padding:78px 0}
+  .hero-dots{display:none}
+  .spec-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+  .gal-item.wide{grid-column:span 2}
+  .hist-media .m1 img{height:400px}
+  .hist-badge{left:0}
+  .rating-band{gap:18px;padding:22px}
+  .rating-band .sep{display:none}
+  .foot-grid{grid-template-columns:1fr;gap:34px}
+  .hero-meta{gap:18px;font-size:.6rem;bottom:26px}
+  .wa-float span{display:none}
+  .wa-float:hover{padding:14px}
+  .wa-float:hover span{max-width:0;margin:0}
+}
+@media(max-width:520px){
+  .wrap{padding:0 20px}
+  .nav{padding:0 20px}
+  .brand img{width:112px}
+  .hero h1{font-size:2.7rem}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+  .tabs{gap:6px}
+  .tab{padding:9px 14px;font-size:.6rem}
+  .hist-stats{gap:24px}
+  .btn{padding:13px 24px;font-size:.66rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <img src="images/logo.png" alt="Terrasse Resto Bar Café">
+  <div class="loader-bar"><i></i></div>
+  <div class="loader-txt">Dakar · Plateau</div>
+</div>
+
+<div id="progress"></div>
+
+<header id="hdr">
+  <nav class="nav">
+    <a href="#top" class="brand"><img src="images/logo.png" alt="Terrasse Resto Bar Café"></a>
+    <div class="nav-links">
+      <a href="#histoire">Notre maison</a>
+      <a href="#carte">La carte</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#avis">Avis</a>
+      <a href="#infos">Nous trouver</a>
+      <a href="#" class="nav-cta" data-wa="Bonjour Terrasse Resto Bar Café, je souhaite passer une commande.">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.2 15 3.8 13.5 3.8 12 3.8 7.5 7.5 3.8 12 3.8S20.2 7.5 20.2 12 16.5 20.2 12 20.2z"/></svg>
+        Commander
+      </a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div id="mobileMenu">
+  <a href="#histoire">Notre maison</a>
+  <a href="#carte">La carte</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#avis">Avis</a>
+  <a href="#infos">Nous trouver</a>
+  <a href="#" class="m-phone" data-wa="Bonjour Terrasse Resto Bar Café, je souhaite passer une commande.">Commander sur WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-slides" id="slides">
+    <div class="hero-slide active" style="background-image:url('images/brunch.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/salle.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/libanais.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/bar.jpg')"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Dakar · Plateau</div>
+    <h1>
+      <span class="l"><span>Une oasis</span></span>
+      <span class="l"><span>méditerranéenne</span></span>
+    </h1>
+    <p>Cuisine libanaise généreuse, terrasse ombragée et bar à cocktails — au cœur de Dakar, du petit-déjeuner jusqu'à minuit.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary" data-wa="Bonjour Terrasse Resto Bar Café, je souhaite passer une commande.">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.2 15 3.8 13.5 3.8 12 3.8 7.5 7.5 3.8 12 3.8S20.2 7.5 20.2 12 16.5 20.2 12 20.2z"/></svg>
+        Commander sur WhatsApp
+      </a>
+      <a href="#carte" class="btn btn-ghost">Découvrir la carte</a>
+    </div>
+  </div>
+  <div class="hero-dots" id="dots">
+    <button class="on" aria-label="Photo 1"></button>
+    <button aria-label="Photo 2"></button>
+    <button aria-label="Photo 3"></button>
+    <button aria-label="Photo 4"></button>
+  </div>
+  <div class="hero-meta">
+    <span><i></i> Ouvert 7j/7 · 8h – 00h</span>
+    <span><i></i> 4,8/5 sur Google</span>
+    <span><i></i> 10 Rue Abdou Karim Bourgi</span>
+  </div>
+  <div class="scroll-hint"></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Mezzés à partager</span><span>Petit-déjeuner libanais</span><span>Grillades au feu</span><span>Cocktails signature</span><span>Terrasse ombragée</span><span>Livraison &amp; emporter</span>
+    <span>Mezzés à partager</span><span>Petit-déjeuner libanais</span><span>Grillades au feu</span><span>Cocktails signature</span><span>Terrasse ombragée</span><span>Livraison &amp; emporter</span>
+  </div>
+</div>
+
+<!-- HISTOIRE -->
+<section class="sec histoire" id="histoire">
+  <div class="wrap">
+    <div class="hist-grid">
+      <div class="hist-media rv">
+        <div class="m1"><img src="images/salle.jpg" alt="La terrasse du restaurant" loading="lazy"></div>
+        <div class="m2"><img src="images/houmous.jpg" alt="Houmous maison" loading="lazy"></div>
+        <div class="hist-badge"><b>4,8</b><small>Google</small></div>
+      </div>
+      <div class="hist-txt">
+        <div class="kicker rv">Notre maison</div>
+        <h2 class="rv d1">Il y a des lieux que l'on construit <em>avec des souvenirs</em></h2>
+        <p class="rv d2">Notre restaurant est né d'un rêve simple : recréer la sensation d'entrer dans une maison libanaise, où chaque détail raconte une histoire, où chaque repas est préparé avec amour et où chaque invité est accueilli comme un membre de la famille.</p>
+        <p class="rv d2">Chaque recoin a été imaginé avec soin, chaque couleur choisie pour apporter de la chaleur, chaque recette travaillée jusqu'à retrouver le goût de la maison. Les parfums qui s'échappent de notre cuisine, la générosité de chaque assiette et l'atmosphère chaleureuse du lieu sont autant de souvenirs des maisons dans lesquelles nous avons grandi.</p>
+        <p class="rv d3">Derrière ce lieu, il y a une famille qui croit que la cuisine est bien plus qu'un repas : c'est un langage d'amour.</p>
+        <div class="sign rv d3">Bienvenue chez vous.</div>
+        <div class="hist-stats rv d4">
+          <div><b>8h</b><small>Ouverture</small></div>
+          <div><b>7j/7</b><small>Tous les jours</small></div>
+          <div><b>100+</b><small>Plats à la carte</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALITES -->
+<section class="sec spec">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker rv">Les incontournables</div>
+      <h2 class="rv d1">Trois façons de <em>se retrouver</em></h2>
+      <p class="lead rv d2">Du premier café du matin au dernier cocktail, la maison vit au rythme de vos envies.</p>
+    </div>
+    <div class="spec-grid">
+      <article class="spec-card rv">
+        <div class="ph"><img src="images/petitdej.jpg" alt="Petit-déjeuner à la Terrasse" loading="lazy"></div>
+        <div class="spec-body">
+          <span class="spec-num">01</span>
+          <h3>Le petit-déjeuner</h3>
+          <p>Manakish au zaatar, œufs awarma, labneh, halloumi grillé et formules complètes — servis dès 8h.</p>
+        </div>
+      </article>
+      <article class="spec-card rv d1">
+        <div class="ph"><img src="images/mezzes.jpg" alt="Mezzés libanais à partager" loading="lazy"></div>
+        <div class="spec-body">
+          <span class="spec-num">02</span>
+          <h3>Les mezzés</h3>
+          <p>Houmous, mtabal, warak enab, falafel, rakakat… On pioche, on goûte, on partage. C'est encore meilleur à plusieurs.</p>
+        </div>
+      </article>
+      <article class="spec-card rv d2">
+        <div class="ph"><img src="images/cocktail.jpg" alt="Cocktails signature" loading="lazy"></div>
+        <div class="spec-body">
+          <span class="spec-num">03</span>
+          <h3>Le bar</h3>
+          <p>Cocktails signature, jus frais à la libanaise et chicha — dans une ambiance feutrée jusqu'à minuit.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CARTE -->
+<section class="sec carte" id="carte">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker rv">La carte</div>
+      <h2 class="rv d1">Ce que l'on <em>partage</em></h2>
+      <p class="lead rv d2">Une sélection de nos plats, à retrouver en intégralité sur nos cartes. Prix en francs CFA.</p>
+    </div>
+
+    <div class="tabs rv" id="tabs">
+      <button class="tab on" data-p="p1">Petit-déjeuner</button>
+      <button class="tab" data-p="p2">Mezzés &amp; entrées</button>
+      <button class="tab" data-p="p3">Salades</button>
+      <button class="tab" data-p="p4">Sandwichs &amp; burgers</button>
+      <button class="tab" data-p="p5">Grillades</button>
+      <button class="tab" data-p="p6">Pizzas &amp; pâtes</button>
+      <button class="tab" data-p="p7">Desserts</button>
+      <button class="tab" data-p="p8">Boissons &amp; bar</button>
+    </div>
+
+    <div class="panel on" id="p1">
+      <div class="menu-cols">
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Foul</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Foul">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Msabaha</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Msabaha">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Fatté</div></div><div class="dish-dots"></div><div class="dish-price">6 500</div><button class="dish-order" data-dish="Fatté">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Malisiyi</div></div><div class="dish-dots"></div><div class="dish-price">7 000</div><button class="dish-order" data-dish="Malisiyi">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Œuf Awarma</div><div class="dish-desc">3 œufs, poivre, sel, 100 g d'awarma</div></div><div class="dish-dots"></div><div class="dish-price">4 500</div><button class="dish-order" data-dish="Œuf Awarma">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Omelette Terrasse</div><div class="dish-desc">Spécial chef — champignons, dinde</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Omelette Terrasse">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Assiette Labneh &amp; Makdous</div><div class="dish-desc">Aubergines farcies aux noix</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Assiette Labneh et Makdous">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Assiette Halloumi grillé</div></div><div class="dish-dots"></div><div class="dish-price">6 500</div><button class="dish-order" data-dish="Assiette Halloumi grillé">+</button></div>
+        </div>
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Manakish Zaatar</div></div><div class="dish-dots"></div><div class="dish-price">2 000</div><button class="dish-order" data-dish="Manakish Zaatar">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Manakish Viande &amp; fromage</div></div><div class="dish-dots"></div><div class="dish-price">3 500</div><button class="dish-order" data-dish="Manakish Viande et fromage">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Manakish Terrasse</div><div class="dish-desc">Fromage + pesto</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Manakish Terrasse">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Formule Terrasse</div><div class="dish-desc">Omelette, halloumi, labneh, légumes, avocat, boisson chaude</div></div><div class="dish-dots"></div><div class="dish-price">12 000</div><button class="dish-order" data-dish="Formule Terrasse">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Formule Eggspectation</div><div class="dish-desc">Œufs tortilla, labneh, croissants, légumes, boisson chaude</div></div><div class="dish-dots"></div><div class="dish-price">9 500</div><button class="dish-order" data-dish="Formule Eggspectation">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Formule Libanais</div><div class="dish-desc">Œufs, labneh, hot-dog, légumes, thé</div></div><div class="dish-dots"></div><div class="dish-price">7 500</div><button class="dish-order" data-dish="Formule Libanais">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Croissant halloumi &amp; pesto</div></div><div class="dish-dots"></div><div class="dish-price">3 000</div><button class="dish-order" data-dish="Croissant halloumi et pesto">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Kaak Tawook</div><div class="dish-desc">Poulet grillé, fromage, sauce</div></div><div class="dish-dots"></div><div class="dish-price">4 500</div><button class="dish-order" data-dish="Kaak Tawook">+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p2">
+      <div class="menu-cols">
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Humous nature</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Humous nature">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Humous mixte</div><div class="dish-desc">Nature, dattes, pesto</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Humous mixte">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Humous à la viande</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Humous à la viande">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Mtabal</div><div class="dish-desc">Aubergines fumées</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Mtabal">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Warak Enab</div><div class="dish-desc">Feuilles de vigne farcies</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Warak Enab">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Assiette Nay Mixte</div></div><div class="dish-dots"></div><div class="dish-price">9 000</div><button class="dish-order" data-dish="Assiette Nay Mixte">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Mezza mixte</div><div class="dish-desc">2 sanbusik, 2 kebbi, 2 rakakat</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Mezza mixte">+</button></div>
+        </div>
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Makanik</div><div class="dish-desc">Petites saucisses épicées</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Makanik">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Batata Harra</div><div class="dish-desc">Pommes de terre épicées</div></div><div class="dish-dots"></div><div class="dish-price">4 500</div><button class="dish-order" data-dish="Batata Harra">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Falafel</div><div class="dish-desc">6 pièces</div></div><div class="dish-dots"></div><div class="dish-price">4 500</div><button class="dish-order" data-dish="Falafel">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Arayes Kafta</div><div class="dish-desc">Pain farci à la viande hachée, 4 pièces</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Arayes Kafta">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Rakakat fromage</div><div class="dish-desc">6 pièces</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Rakakat fromage">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Sanbousik à la viande</div><div class="dish-desc">6 pièces</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Sanbousik à la viande">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Dynamite Shrimps</div><div class="dish-desc">Crevettes épicées sautées</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Dynamite Shrimps">+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p3">
+      <div class="menu-cols">
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Fattoush</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Fattoush">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Taboulé</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Taboulé">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Salade grecque</div><div class="dish-desc">Laitue, tomate, concombre, olive</div></div><div class="dish-dots"></div><div class="dish-price">7 500</div><button class="dish-order" data-dish="Salade grecque">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Roquette &amp; Halloumi</div></div><div class="dish-dots"></div><div class="dish-price">8 500</div><button class="dish-order" data-dish="Salade Roquette Halloumi">+</button></div>
+        </div>
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Salade de crabe</div><div class="dish-desc">Crabe, laitue, maïs, avocat, champignons</div></div><div class="dish-dots"></div><div class="dish-price">7 500</div><button class="dish-order" data-dish="Salade de crabe">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Salade Quinoa</div><div class="dish-desc">Feta, avocat, fruits secs</div></div><div class="dish-dots"></div><div class="dish-price">7 500</div><button class="dish-order" data-dish="Salade Quinoa">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Avocat &amp; crevettes</div></div><div class="dish-dots"></div><div class="dish-price">8 000</div><button class="dish-order" data-dish="Salade avocat crevettes">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Chicken Caesar</div></div><div class="dish-dots"></div><div class="dish-price">7 500</div><button class="dish-order" data-dish="Chicken Caesar Salade">+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p4">
+      <div class="menu-cols">
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Sandwich Tawook</div><div class="dish-desc">Poulet grillé, chou, ail, frites</div></div><div class="dish-dots"></div><div class="dish-price">4 500</div><button class="dish-order" data-dish="Sandwich Tawook">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Sandwich Kebab Terrasse</div><div class="dish-desc">Viande, houmous, aubergine, poivron grillé</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Sandwich Kebab Terrasse">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Sub Philadelphia</div><div class="dish-desc">Filet de viande, champignons, cheddar</div></div><div class="dish-dots"></div><div class="dish-price">6 500</div><button class="dish-order" data-dish="Sub Philadelphia">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Sub Fajita</div><div class="dish-desc">Poulet fajita, fromage, légumes, maïs</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Sub Fajita">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Wrap Boneless</div><div class="dish-desc">Poulet croustillant, miel-moutarde, barbecue</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Wrap Boneless">+</button></div>
+        </div>
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Burger Terrasse</div><div class="dish-desc">Viande, œuf, cheddar, sauce barbecue</div></div><div class="dish-dots"></div><div class="dish-price">7 500</div><button class="dish-order" data-dish="Burger Terrasse">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Burger libanais</div><div class="dish-desc">Bœuf, salade de chou, oignons, tomates</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Burger libanais">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Swiss mushroom</div><div class="dish-desc">Viande, champignons, fromage</div></div><div class="dish-dots"></div><div class="dish-price">6 500</div><button class="dish-order" data-dish="Swiss mushroom">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Fish Burger</div><div class="dish-desc">Filets de poisson, sauce tartare</div></div><div class="dish-dots"></div><div class="dish-price">6 500</div><button class="dish-order" data-dish="Fish Burger">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Angus</div><div class="dish-desc">Bœuf 150 g, cheddar</div></div><div class="dish-dots"></div><div class="dish-price">9 000</div><button class="dish-order" data-dish="Angus">+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p5">
+      <div class="menu-cols">
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Tawook</div><div class="dish-desc">2 brochettes, ail, frites, oignons, tomates</div></div><div class="dish-dots"></div><div class="dish-price">8 500</div><button class="dish-order" data-dish="Tawook">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Viande</div><div class="dish-desc">2 brochettes, houmous, frites</div></div><div class="dish-dots"></div><div class="dish-price">9 500</div><button class="dish-order" data-dish="Viande grillée">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Kebab</div><div class="dish-desc">3 brochettes, houmous, frites</div></div><div class="dish-dots"></div><div class="dish-price">9 000</div><button class="dish-order" data-dish="Kebab">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Grillades mixtes</div><div class="dish-desc">1 viande, 1 tawouk, 2 kebab, houmous</div></div><div class="dish-dots"></div><div class="dish-price">11 000</div><button class="dish-order" data-dish="Grillades mixtes">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Chicken avocado</div><div class="dish-desc">Sauce avocat, légumes sautés, frites</div></div><div class="dish-dots"></div><div class="dish-price">8 500</div><button class="dish-order" data-dish="Chicken avocado">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Chicken mango</div><div class="dish-desc">Sauce mangue, légumes sautés, frites</div></div><div class="dish-dots"></div><div class="dish-price">8 500</div><button class="dish-order" data-dish="Chicken mango">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Fish &amp; chips</div><div class="dish-desc">Poissons frits, sauce tartare</div></div><div class="dish-dots"></div><div class="dish-price">8 500</div><button class="dish-order" data-dish="Fish and chips">+</button></div>
+        </div>
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Demi poulet grillé</div></div><div class="dish-dots"></div><div class="dish-price">9 000</div><button class="dish-order" data-dish="Demi poulet grillé">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Poulet entier grillé</div><div class="dish-desc">Houmous, ail, frites, pain arabe</div></div><div class="dish-dots"></div><div class="dish-price">14 000</div><button class="dish-order" data-dish="Poulet entier grillé">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Black angus steak</div><div class="dish-desc">350 g de viande argentine, légumes, frites</div></div><div class="dish-dots"></div><div class="dish-price">27 000</div><button class="dish-order" data-dish="Black angus steak">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Mixed grill 1 kg</div><div class="dish-desc">Houmous, ail, frites — à partager</div></div><div class="dish-dots"></div><div class="dish-price">30 000</div><button class="dish-order" data-dish="Mixed grill 1kg">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Brochette de viande 1 kg</div></div><div class="dish-dots"></div><div class="dish-price">45 000</div><button class="dish-order" data-dish="Brochette de viande 1kg">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Tableyyé Tawook</div><div class="dish-desc">Poulet, frites, ail, houmous, chou</div></div><div class="dish-dots"></div><div class="dish-price">8 500</div><button class="dish-order" data-dish="Tableyyé Tawook">+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p6">
+      <div class="menu-cols">
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Pizza Margherita</div><div class="dish-desc">Sauce, fromage, pesto</div></div><div class="dish-dots"></div><div class="dish-price">7 000</div><button class="dish-order" data-dish="Pizza Margherita">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Pizza Pepperoni</div></div><div class="dish-dots"></div><div class="dish-price">8 000</div><button class="dish-order" data-dish="Pizza Pepperoni">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Pizza Quatre fromages</div><div class="dish-desc">Roquefort, parmesan, mozzarella, emmental</div></div><div class="dish-dots"></div><div class="dish-price">9 000</div><button class="dish-order" data-dish="Pizza Quatre fromages">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Pizza Terrasse</div><div class="dish-desc">Champignons, salami, dinde, pepperoni, maïs</div></div><div class="dish-dots"></div><div class="dish-price">10 000</div><button class="dish-order" data-dish="Pizza Terrasse">+</button></div>
+        </div>
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Fettuccini poulet</div><div class="dish-desc">Crème fraîche, champignons, parmesan</div></div><div class="dish-dots"></div><div class="dish-price">8 500</div><button class="dish-order" data-dish="Fettuccini poulet">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Marinara</div><div class="dish-desc">Sauce rouge, fruits de mer, parmesan</div></div><div class="dish-dots"></div><div class="dish-price">8 500</div><button class="dish-order" data-dish="Marinara">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Penne Arabiata</div><div class="dish-desc">Sauce rouge, olives, parmesan</div></div><div class="dish-dots"></div><div class="dish-price">7 000</div><button class="dish-order" data-dish="Penne Arabiata">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Pâtes Terrasse</div><div class="dish-desc">Pesto, poulet croustillant</div></div><div class="dish-dots"></div><div class="dish-price">9 000</div><button class="dish-order" data-dish="Pâtes Terrasse">+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p7">
+      <div class="menu-cols">
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Crêpe Nutella</div></div><div class="dish-dots"></div><div class="dish-price">4 000</div><button class="dish-order" data-dish="Crêpe Nutella">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Crêpe Oreo / Kinder / Lotus</div></div><div class="dish-dots"></div><div class="dish-price">4 500</div><button class="dish-order" data-dish="Crêpe Oreo">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Fondant</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Fondant">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Knefé</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Knefé">+</button></div>
+        </div>
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Glace Ashta</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Glace Ashta">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Banane split</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Banane split">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Cocktail Terrasse</div><div class="dish-desc">Fruits coupés, sauce avocat &amp; fraise</div></div><div class="dish-dots"></div><div class="dish-price">7 500</div><button class="dish-order" data-dish="Cocktail Terrasse">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Olympic</div><div class="dish-desc">Avocat, fraise, fruits, boule de glace</div></div><div class="dish-dots"></div><div class="dish-price">7 000</div><button class="dish-order" data-dish="Olympic">+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p8">
+      <div class="menu-cols">
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Fresh juice</div><div class="dish-desc">Orange, ananas, pomme, carotte, bissap, gingembre</div></div><div class="dish-dots"></div><div class="dish-price">3 000</div><button class="dish-order" data-dish="Fresh juice">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Minted lemonade</div></div><div class="dish-dots"></div><div class="dish-price">3 500</div><button class="dish-order" data-dish="Minted lemonade">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Smoothie Mangue passion</div><div class="dish-desc">Mangue, passion, yaourt, miel</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Smoothie Mangue passion">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Milkshake Oreo</div></div><div class="dish-dots"></div><div class="dish-price">5 000</div><button class="dish-order" data-dish="Milkshake Oreo">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Cappuccino</div></div><div class="dish-dots"></div><div class="dish-price">2 500</div><button class="dish-order" data-dish="Cappuccino">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Thé à la menthe</div></div><div class="dish-dots"></div><div class="dish-price">2 000</div><button class="dish-order" data-dish="Thé à la menthe">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Chicha</div><div class="dish-desc">Deux pommes, menthe, melon ice…</div></div><div class="dish-dots"></div><div class="dish-price">7 000</div><button class="dish-order" data-dish="Chicha">+</button></div>
+        </div>
+        <div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Virgin Mojito</div><div class="dish-desc">Menthe, citron vert, eau gazeuse</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Virgin Mojito">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Tutti Fruiti</div><div class="dish-desc">Pastèque, pomme, raisin, litchi, basilic</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Tutti Fruiti">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Amazone</div><div class="dish-desc">Orange pressée, pamplemousse, bissap</div></div><div class="dish-dots"></div><div class="dish-price">5 500</div><button class="dish-order" data-dish="Amazone">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Mojito</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Mojito">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">L'Inseparable Mojito</div><div class="dish-desc">Signature — au choix : passion, mangue, fraise…</div></div><div class="dish-dots"></div><div class="dish-price">7 500</div><button class="dish-order" data-dish="L'Inseparable Mojito">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Piña Colada</div></div><div class="dish-dots"></div><div class="dish-price">6 000</div><button class="dish-order" data-dish="Piña Colada">+</button></div>
+          <div class="dish"><div class="dish-main"><div class="dish-name">Sexy Cindy</div><div class="dish-desc">Cocktail signature</div></div><div class="dish-dots"></div><div class="dish-price">7 500</div><button class="dish-order" data-dish="Sexy Cindy">+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-note">
+      <span>Cartes complètes :</span>
+      <a href="https://www.card.carrotmedia.info/terrase/menus/sur%20place/menu.pdf" target="_blank" rel="noopener">Sur place</a> ·
+      <a href="https://www.card.carrotmedia.info/terrase/menus/livraison%20et%20emporter/menu.pdf?v=2" target="_blank" rel="noopener">Livraison &amp; emporter</a> ·
+      <a href="https://www.card.carrotmedia.info/terrase/menus/boisson/menu.pdf" target="_blank" rel="noopener">Boissons</a>
+    </div>
+    <div class="carte-cta">
+      <a href="#" class="btn btn-gold" data-wa="Bonjour Terrasse Resto Bar Café, je souhaite passer une commande.">Commander sur WhatsApp</a>
+      <a href="tel:+221711198787" class="btn btn-outline">Appeler le 71 119 87 87</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="sec gal" id="galerie">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker rv">Galerie</div>
+      <h2 class="rv d1">L'atmosphère <em>Terrasse</em></h2>
+      <p class="lead rv d2">Quelques instants de la maison — la salle, la terrasse, l'assiette et le bar.</p>
+    </div>
+    <div class="gal-grid" id="galGrid">
+      <div class="gal-item wide tall rv" data-full="images/salle.jpg"><img src="images/salle.jpg" alt="La terrasse" loading="lazy"><span class="cap">La terrasse</span></div>
+      <div class="gal-item rv d1" data-full="images/mezzes.jpg"><img src="images/mezzes.jpg" alt="Mezzés" loading="lazy"><span class="cap">Mezzés</span></div>
+      <div class="gal-item rv d2" data-full="images/houmous.jpg"><img src="images/houmous.jpg" alt="Houmous" loading="lazy"><span class="cap">Houmous</span></div>
+      <div class="gal-item rv" data-full="images/bar.jpg"><img src="images/bar.jpg" alt="Le bar" loading="lazy"><span class="cap">Le bar</span></div>
+      <div class="gal-item rv d1" data-full="images/brunch.jpg"><img src="images/brunch.jpg" alt="Brunch en terrasse" loading="lazy"><span class="cap">Brunch</span></div>
+      <div class="gal-item rv d2" data-full="images/libanais.jpg"><img src="images/libanais.jpg" alt="Table libanaise" loading="lazy"><span class="cap">À table</span></div>
+      <div class="gal-item rv" data-full="images/cocktail.jpg"><img src="images/cocktail.jpg" alt="Cocktails" loading="lazy"><span class="cap">Cocktails</span></div>
+      <div class="gal-item rv d1" data-full="images/service.jpg"><img src="images/service.jpg" alt="Le service" loading="lazy"><span class="cap">Le service</span></div>
+      <div class="gal-item rv d2" data-full="images/traiteur.jpg"><img src="images/traiteur.jpg" alt="Pains maison" loading="lazy"><span class="cap">Pains maison</span></div>
+      <div class="gal-item rv" data-full="images/sandwich.jpg"><img src="images/sandwich.jpg" alt="Sandwich" loading="lazy"><span class="cap">Sur le pouce</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="sec avis" id="avis">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker rv">Ils en parlent</div>
+      <h2 class="rv d1">Une adresse <em>où l'on revient</em></h2>
+    </div>
+    <div class="rating-band rv d2">
+      <div class="rt"><div class="big">4,8</div><small>Note Google</small></div>
+      <div class="sep"></div>
+      <div class="stars">★★★★★</div>
+      <div class="sep"></div>
+      <p class="txt">Une oasis méditerranéenne au cœur de Dakar — appréciée pour sa cuisine libanaise, son accueil et sa terrasse.</p>
+    </div>
+    <div class="avis-grid">
+      <article class="avis-card rv">
+        <div class="q">“</div>
+        <p>Les mezzés, c'est encore meilleur quand on les partage. On pioche, on goûte, on échange… et chacun trouve son préféré.</p>
+        <div class="avis-who"><div class="avis-av">T</div><div><b>Terrasse Resto Bar Café</b><small>Notre philosophie</small></div></div>
+      </article>
+      <article class="avis-card rv d1">
+        <div class="q">“</div>
+        <p>Du petit-déjeuner au dîner, sur place ou en livraison : chez Terrasse, il y a mille façons de profiter de nos saveurs.</p>
+        <div class="avis-who"><div class="avis-av">D</div><div><b>La maison</b><small>8h – minuit, 7j/7</small></div></div>
+      </article>
+      <article class="avis-card rv d2">
+        <div class="q">“</div>
+        <p>Quand nos cocktails racontent l'art de recevoir à la libanaise — un bar où l'on s'attarde volontiers.</p>
+        <div class="avis-who"><div class="avis-av">B</div><div><b>Le bar</b><small>Cocktails signature</small></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- INFOS -->
+<section class="sec infos" id="infos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker rv">Nous trouver</div>
+      <h2 class="rv d1">Au cœur du <em>Plateau</em></h2>
+      <p class="lead rv d2">À deux pas de l'avenue Léopold Sédar Senghor, une terrasse à l'écart de l'agitation.</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-list rv">
+        <div class="info-row">
+          <div class="info-ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+          <div>
+            <h4>Adresse</h4>
+            <p>10 Rue Abdou Karim Bourgi<br>angle 15 Rue Docteur Thèze<br>Plateau, Dakar 10000 — Sénégal</p>
+            <a class="sub" href="https://www.google.com/maps/place/Terrasse+Resto+Bar+Cafe/@14.6719339,-17.4333403,17z" target="_blank" rel="noopener">Voir sur Google Maps →</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-ico"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
+          <div>
+            <h4>Téléphone</h4>
+            <a href="tel:+221711198787">+221 71 119 87 87</a>
+            <p class="sub">Réservations : <a href="tel:+221711197878">+221 71 119 78 78</a></p>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+          <div>
+            <h4>Horaires</h4>
+            <div class="hours">
+              <span>Lundi – Dimanche</span><span>8h00 – 00h00</span>
+            </div>
+            <div class="open-pill"><i></i> Ouvert 7j/7</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3z"/></svg></div>
+          <div>
+            <h4>Commander &amp; réserver</h4>
+            <p>Commande WhatsApp et livraison : <a href="tel:+221711198787">71 119 87 87</a></p>
+            <a class="sub" href="#" data-wa="Bonjour Terrasse Resto Bar Café, je souhaite passer une commande.">Ouvrir WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+      <div class="map-box rv d1">
+        <iframe src="https://www.google.com/maps?q=Terrasse%20Resto%20Bar%20Cafe%2C%2010%20Rue%20Abdou%20Karim%20Bourgi%2C%20Dakar&output=embed" title="Carte Terrasse Resto Bar Café" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-card">
+          <b>Terrasse Resto Bar Café</b>
+          <p>10 Rue Abdou Karim Bourgi, angle 15 Rue Docteur Thèze, Plateau</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=14.6719339,-17.4333403" target="_blank" rel="noopener">Itinéraire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="bg" style="background-image:url('images/brunch.jpg')"></div>
+  <div class="wrap">
+    <h2 class="rv">On vous garde <em>une table</em></h2>
+    <p class="rv d1">Petit-déjeuner, déjeuner d'affaires, mezzés à partager ou cocktail en fin de journée — écrivez-nous sur WhatsApp.</p>
+    <a href="#" class="btn btn-primary rv d2" data-wa="Bonjour Terrasse Resto Bar Café, je souhaite réserver une table.">Réserver sur WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="images/logo.png" alt="Terrasse Resto Bar Café">
+        <p>Une oasis méditerranéenne au cœur de Dakar. Cuisine libanaise, terrasse et bar — du petit-déjeuner jusqu'à minuit.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/terrasserestobarcafe/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.3-.6.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.3.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.3.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.3-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.1 1.1 0 1 1-2.3 0 1.1 1.1 0 0 1 2.3 0z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61588598604700" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.6V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.3H7.6V13h2.7v8h3.2z"/></svg></a>
+          <a href="#" data-wa="Bonjour Terrasse Resto Bar Café, je souhaite passer une commande." aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.2 15 3.8 13.5 3.8 12 3.8 7.5 7.5 3.8 12 3.8S20.2 7.5 20.2 12 16.5 20.2 12 20.2z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>La maison</h5>
+        <a href="#histoire">Notre histoire</a>
+        <a href="#carte">La carte</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#avis">Avis</a>
+      </div>
+      <div class="foot-col">
+        <h5>Services</h5>
+        <a href="#" data-wa="Bonjour, je souhaite commander en livraison.">Livraison</a>
+        <a href="#" data-wa="Bonjour, je souhaite commander à emporter.">À emporter</a>
+        <a href="#" data-wa="Bonjour, je souhaite un devis pour un événement traiteur.">Traiteur</a>
+        <a href="#" data-wa="Bonjour, je souhaite réserver une table.">Réservation</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="tel:+221711198787">+221 71 119 87 87</a>
+        <a href="tel:+221711197878">+221 71 119 78 78</a>
+        <p>10 Rue Abdou Karim Bourgi<br>Plateau, Dakar</p>
+        <p>Tous les jours · 8h – 00h</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> Terrasse Resto Bar Café — Dakar, Sénégal</span>
+      <span>Site vitrine · Commandes via WhatsApp</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="wa-float" id="waFloat" data-wa="Bonjour Terrasse Resto Bar Café, je souhaite passer une commande." aria-label="Commander sur WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.2 15 3.8 13.5 3.8 12 3.8 7.5 7.5 3.8 12 3.8S20.2 7.5 20.2 12 16.5 20.2 12 20.2z"/></svg>
+  <span>Commander</span>
+</a>
+
+<div id="lb">
+  <button class="x" aria-label="Fermer">×</button>
+  <button class="nav-btn prev" aria-label="Précédent">‹</button>
+  <img src="" alt="Photo agrandie">
+  <button class="nav-btn next" aria-label="Suivant">›</button>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- WHATSAPP ---------- */
+  var WA_NUMBER = '221711198787';
+  function waLink(msg){
+    return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+  }
+  document.querySelectorAll('[data-wa]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      window.open(waLink(el.getAttribute('data-wa')), '_blank', 'noopener');
+    });
+  });
+  document.querySelectorAll('.dish-order').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var d = btn.getAttribute('data-dish');
+      window.open(waLink('Bonjour Terrasse Resto Bar Café, je souhaite commander : ' + d + '. Merci !'), '_blank', 'noopener');
+    });
+  });
+
+  /* ---------- LOADER ---------- */
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      var l = document.getElementById('loader');
+      if(l) l.classList.add('done');
+    }, 700);
+  });
+  setTimeout(function(){
+    var l = document.getElementById('loader');
+    if(l) l.classList.add('done');
+  }, 3500);
+
+  /* ---------- HEADER + PROGRESS ---------- */
+  var hdr = document.getElementById('hdr');
+  var prog = document.getElementById('progress');
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    if(y > 60){ hdr.classList.add('scrolled'); } else { hdr.classList.remove('scrolled'); }
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- MOBILE MENU ---------- */
+  var burger = document.getElementById('burger');
+  var mm = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = mm.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    mm.querySelectorAll('a').forEach(function(a, i){
+      a.style.transitionDelay = open ? (0.08 + i * 0.06) + 's' : '0s';
+    });
+  });
+  mm.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      mm.classList.remove('open');
+      burger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ---------- HERO SLIDESHOW ---------- */
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.hero-slide'));
+  var dots = Array.prototype.slice.call(document.querySelectorAll('#dots button'));
+  var cur = 0, timer = null;
+  function go(i){
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('on');
+    cur = (i + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('on');
+  }
+  function start(){
+    if(timer) clearInterval(timer);
+    timer = setInterval(function(){ go(cur + 1); }, 6000);
+  }
+  dots.forEach(function(d, i){
+    d.addEventListener('click', function(){ go(i); start(); });
+  });
+  if(slides.length > 1) start();
+
+  /* ---------- REVEAL ---------- */
+  var rvs = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+    rvs.forEach(function(el){ io.observe(el); });
+  } else {
+    rvs.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- TABS ---------- */
+  var tabs = document.querySelectorAll('#tabs .tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.classList.remove('on'); });
+      t.classList.add('on');
+      document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('on'); });
+      var target = document.getElementById(t.getAttribute('data-p'));
+      if(target) target.classList.add('on');
+    });
+  });
+
+  /* ---------- LIGHTBOX ---------- */
+  var lb = document.getElementById('lb');
+  var lbImg = lb.querySelector('img');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.gal-item'));
+  var idx = 0;
+  function show(i){
+    idx = (i + items.length) % items.length;
+    lbImg.src = items[idx].getAttribute('data-full');
+  }
+  items.forEach(function(it, i){
+    it.addEventListener('click', function(){
+      show(i);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeLb(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  lb.querySelector('.x').addEventListener('click', closeLb);
+  lb.querySelector('.prev').addEventListener('click', function(e){ e.stopPropagation(); show(idx - 1); });
+  lb.querySelector('.next').addEventListener('click', function(e){ e.stopPropagation(); show(idx + 1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLb();
+    if(e.key === 'ArrowLeft') show(idx - 1);
+    if(e.key === 'ArrowRight') show(idx + 1);
+  });
+
+  /* ---------- YEAR ---------- */
+  var yr = document.getElementById('yr');
+  if(yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
